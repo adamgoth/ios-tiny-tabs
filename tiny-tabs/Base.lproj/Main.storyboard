@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEf-aF-xL4" id="zYp-Fc-Bjh">
-                                            <frame key="frameInset" width="375" height="149"/>
+                                            <frame key="frameInset" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWM-34-jg1" userLabel="Container">
@@ -71,6 +71,12 @@
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLbl" destination="tm9-Gm-ahu" id="Knv-wk-48I"/>
+                                            <outlet property="descriptionLbl" destination="044-W0-I6e" id="p1B-6C-0Ib"/>
+                                            <outlet property="neighborhoodLbl" destination="smZ-eN-lKO" id="4wq-Dz-EPx"/>
+                                            <outlet property="restaurantLbl" destination="C1h-IN-ELu" id="OgU-Dv-R7r"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -102,6 +108,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tiny Tabs" id="Abk-9Q-aDC"/>
+                    <connections>
+                        <outlet property="tableView" destination="2SN-iX-31Q" id="XyQ-Eq-gPT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

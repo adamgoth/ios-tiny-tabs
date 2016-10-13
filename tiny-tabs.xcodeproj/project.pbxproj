@@ -13,10 +13,10 @@
 		F946A8C21DAF057400519DF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C01DAF057400519DF8 /* Main.storyboard */; };
 		F946A8C41DAF057400519DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C31DAF057400519DF8 /* Assets.xcassets */; };
 		F946A8C71DAF057400519DF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C51DAF057400519DF8 /* LaunchScreen.storyboard */; };
-		F946A8CF1DAF086900519DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */; };
 		F946A8D61DAF26A800519DF8 /* SpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8D51DAF26A800519DF8 /* SpecialCell.swift */; };
 		F946A8D81DAF284400519DF8 /* Special.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8D71DAF284400519DF8 /* Special.swift */; };
 		F946A8DB1DAF29F100519DF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8DA1DAF29F100519DF8 /* DataService.swift */; };
+		F9DB5A2D1DAF3AE600D3BF0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,11 @@
 		F946A8C31DAF057400519DF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F946A8C61DAF057400519DF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F946A8C81DAF057400519DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F946A8D51DAF26A800519DF8 /* SpecialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialCell.swift; sourceTree = "<group>"; };
 		F946A8D71DAF284400519DF8 /* Special.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Special.swift; sourceTree = "<group>"; };
 		F946A8DA1DAF29F100519DF8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F978FB481DAF3CF700C468F1 /* tiny-tabs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tiny-tabs.entitlements"; sourceTree = "<group>"; };
+		F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		F946A8BB1DAF057400519DF8 /* tiny-tabs */ = {
 			isa = PBXGroup;
 			children = (
+				F978FB481DAF3CF700C468F1 /* tiny-tabs.entitlements */,
 				F946A8D91DAF29CC00519DF8 /* Services */,
 				F946A8BC1DAF057400519DF8 /* AppDelegate.swift */,
 				F946A8C31DAF057400519DF8 /* Assets.xcassets */,
@@ -95,7 +97,7 @@
 				F946A8C01DAF057400519DF8 /* Main.storyboard */,
 				F946A8C51DAF057400519DF8 /* LaunchScreen.storyboard */,
 				F946A8C81DAF057400519DF8 /* Info.plist */,
-				F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */,
+				F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */,
 			);
 			path = "tiny-tabs";
 			sourceTree = "<group>";
@@ -167,7 +169,13 @@
 				TargetAttributes = {
 					F946A8B81DAF057400519DF8 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = M685F39Y73;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -195,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F946A8C71DAF057400519DF8 /* LaunchScreen.storyboard in Resources */,
-				F946A8CF1DAF086900519DF8 /* GoogleService-Info.plist in Resources */,
+				F9DB5A2D1DAF3AE600D3BF0C /* GoogleService-Info.plist in Resources */,
 				F946A8C41DAF057400519DF8 /* Assets.xcassets in Resources */,
 				F946A8C21DAF057400519DF8 /* Main.storyboard in Resources */,
 			);
@@ -384,7 +392,10 @@
 			baseConfigurationReference = 748BAC4FB854AEB07BAF0A92 /* Pods-tiny-tabs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "tiny-tabs/tiny-tabs.entitlements";
+				DEVELOPMENT_TEAM = M685F39Y73;
 				INFOPLIST_FILE = "tiny-tabs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adamgoth.tiny-tabs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,7 +408,10 @@
 			baseConfigurationReference = DF2CFEA07F5BD818A088BAAC /* Pods-tiny-tabs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "tiny-tabs/tiny-tabs.entitlements";
+				DEVELOPMENT_TEAM = M685F39Y73;
 				INFOPLIST_FILE = "tiny-tabs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adamgoth.tiny-tabs";
 				PRODUCT_NAME = "$(TARGET_NAME)";

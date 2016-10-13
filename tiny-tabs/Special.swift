@@ -30,4 +30,6 @@ class Special {
         _description = description
         _days = days
     }
+    
+    
 }

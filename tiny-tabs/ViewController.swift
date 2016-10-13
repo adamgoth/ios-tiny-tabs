@@ -7,14 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var specials = [Special]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        DataService.ds.specials_ref.observe(FIRDataEventType.value, with: { (snapshot) in
+            if let specialResults = snapshot.value as? [String: AnyObject] {
+                for specialResult in specialResults {
+                    print(specialResult)
+                    if let specialDict = specialResult.value as? [String: AnyObject] {
+                        let restaurantId = specialDict["restaurantId"] as! String
+                        let description = specialDict["description"] as! String
+                        let days = specialDict["days"] as! [String: Bool]
+                        let special = Special(restaurantId: restaurantId, description: description, days: days)
+                        self.specials.append(special)
+                    }
+                    
+                }
+                
+            print("specials: \(self.specials.count)")
+            self.tableView.reloadData()
+            
+            }
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,11 +53,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return specials.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return SpecialCell()
+        
+        let special = specials[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SpecialCell") as? SpecialCell {
+            cell.configureCell(special: special)
+            return cell
+        } else {
+            return SpecialCell()
+        }
     }
 
 
