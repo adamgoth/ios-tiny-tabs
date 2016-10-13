@@ -19,15 +19,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2SN-iX-31Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2SN-iX-31Q">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="jEf-aF-xL4">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="81"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpecialCell" rowHeight="150" id="jEf-aF-xL4" customClass="SpecialCell" customModule="tiny_tabs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEf-aF-xL4" id="zYp-Fc-Bjh">
-                                            <frame key="frameInset" width="375" height="80"/>
+                                            <frame key="frameInset" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWM-34-jg1" userLabel="Container">
+                                                    <frame key="frameInset" minX="8" minY="8" width="359" height="133"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1h-IN-ELu">
+                                                            <frame key="frameInset" minX="8" minY="8" width="83" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Neighborhood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smZ-eN-lKO">
+                                                            <frame key="frameInset" minX="8" minY="37" width="110" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm9-Gm-ahu">
+                                                            <frame key="frameInset" minX="8" minY="66" width="63" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="044-W0-I6e">
+                                                            <frame key="frameInset" minX="8" minY="95" width="88" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="044-W0-I6e" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="1hQ-rz-D4o"/>
+                                                        <constraint firstItem="C1h-IN-ELu" firstAttribute="top" secondItem="sWM-34-jg1" secondAttribute="top" constant="8" id="J2H-8x-IVh"/>
+                                                        <constraint firstItem="tm9-Gm-ahu" firstAttribute="top" secondItem="smZ-eN-lKO" secondAttribute="bottom" constant="8" id="PlV-B1-pgu"/>
+                                                        <constraint firstItem="smZ-eN-lKO" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="XPv-rt-h82"/>
+                                                        <constraint firstItem="tm9-Gm-ahu" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="fnW-zz-uzY"/>
+                                                        <constraint firstItem="044-W0-I6e" firstAttribute="top" secondItem="tm9-Gm-ahu" secondAttribute="bottom" constant="8" id="sbK-rK-Dud"/>
+                                                        <constraint firstItem="smZ-eN-lKO" firstAttribute="top" secondItem="C1h-IN-ELu" secondAttribute="bottom" constant="8" id="ubt-W6-EvY"/>
+                                                        <constraint firstItem="C1h-IN-ELu" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="weL-NC-arp"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

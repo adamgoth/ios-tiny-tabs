@@ -7,5 +7,6 @@ target 'tiny-tabs' do
 
   # Pods for tiny-tabs
   pod 'Firebase/Core'
-
+	pod 'Firebase/Database'
+	
 end
