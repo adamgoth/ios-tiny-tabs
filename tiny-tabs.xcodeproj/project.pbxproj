@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A805AC0BD8E633A0443855E0 /* Pods_tiny_tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37420E58EBDA02728488E32 /* Pods_tiny_tabs.framework */; };
 		F946A8BD1DAF057400519DF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8BC1DAF057400519DF8 /* AppDelegate.swift */; };
 		F946A8BF1DAF057400519DF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8BE1DAF057400519DF8 /* ViewController.swift */; };
 		F946A8C21DAF057400519DF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C01DAF057400519DF8 /* Main.storyboard */; };
 		F946A8C41DAF057400519DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C31DAF057400519DF8 /* Assets.xcassets */; };
 		F946A8C71DAF057400519DF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F946A8C51DAF057400519DF8 /* LaunchScreen.storyboard */; };
+		F946A8CF1DAF086900519DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		748BAC4FB854AEB07BAF0A92 /* Pods-tiny-tabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiny-tabs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tiny-tabs/Pods-tiny-tabs.debug.xcconfig"; sourceTree = "<group>"; };
+		C37420E58EBDA02728488E32 /* Pods_tiny_tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tiny_tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2CFEA07F5BD818A088BAAC /* Pods-tiny-tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tiny-tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-tiny-tabs/Pods-tiny-tabs.release.xcconfig"; sourceTree = "<group>"; };
 		F946A8B91DAF057400519DF8 /* tiny-tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tiny-tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F946A8BC1DAF057400519DF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F946A8BE1DAF057400519DF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		F946A8C31DAF057400519DF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F946A8C61DAF057400519DF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F946A8C81DAF057400519DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A805AC0BD8E633A0443855E0 /* Pods_tiny_tabs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22075D484B9C874D911A80DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				748BAC4FB854AEB07BAF0A92 /* Pods-tiny-tabs.debug.xcconfig */,
+				DF2CFEA07F5BD818A088BAAC /* Pods-tiny-tabs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4AE7AA980822FF449D16F388 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C37420E58EBDA02728488E32 /* Pods_tiny_tabs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F946A8B01DAF057400519DF8 = {
 			isa = PBXGroup;
 			children = (
 				F946A8BB1DAF057400519DF8 /* tiny-tabs */,
 				F946A8BA1DAF057400519DF8 /* Products */,
+				22075D484B9C874D911A80DA /* Pods */,
+				4AE7AA980822FF449D16F388 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				F946A8C31DAF057400519DF8 /* Assets.xcassets */,
 				F946A8C51DAF057400519DF8 /* LaunchScreen.storyboard */,
 				F946A8C81DAF057400519DF8 /* Info.plist */,
+				F946A8CE1DAF086900519DF8 /* GoogleService-Info.plist */,
 			);
 			path = "tiny-tabs";
 			sourceTree = "<group>";
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F946A8CB1DAF057400519DF8 /* Build configuration list for PBXNativeTarget "tiny-tabs" */;
 			buildPhases = (
+				DDA0DC1F22EC37B5EF73587C /* [CP] Check Pods Manifest.lock */,
 				F946A8B51DAF057400519DF8 /* Sources */,
 				F946A8B61DAF057400519DF8 /* Frameworks */,
 				F946A8B71DAF057400519DF8 /* Resources */,
+				C602B854DD5654F11CCDF419 /* [CP] Embed Pods Frameworks */,
+				F5D5E4C5C09CCB53C22062AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				F946A8C71DAF057400519DF8 /* LaunchScreen.storyboard in Resources */,
+				F946A8CF1DAF086900519DF8 /* GoogleService-Info.plist in Resources */,
 				F946A8C41DAF057400519DF8 /* Assets.xcassets in Resources */,
 				F946A8C21DAF057400519DF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C602B854DD5654F11CCDF419 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tiny-tabs/Pods-tiny-tabs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDA0DC1F22EC37B5EF73587C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5D5E4C5C09CCB53C22062AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tiny-tabs/Pods-tiny-tabs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F946A8B51DAF057400519DF8 /* Sources */ = {
@@ -258,6 +337,7 @@
 		};
 		F946A8CC1DAF057400519DF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 748BAC4FB854AEB07BAF0A92 /* Pods-tiny-tabs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "tiny-tabs/Info.plist";
@@ -270,6 +350,7 @@
 		};
 		F946A8CD1DAF057400519DF8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2CFEA07F5BD818A088BAAC /* Pods-tiny-tabs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "tiny-tabs/Info.plist";
@@ -299,6 +380,7 @@
 				F946A8CD1DAF057400519DF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

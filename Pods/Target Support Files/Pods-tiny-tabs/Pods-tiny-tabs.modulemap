@@ -1,0 +1,6 @@
+framework module Pods_tiny_tabs {
+  umbrella header "Pods-tiny-tabs-umbrella.h"
+
+  export *
+  module * { export * }
+}
