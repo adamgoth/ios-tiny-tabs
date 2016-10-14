@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     var specials = [Special]()
+    var restaurants = [Restaurant]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
+        DataService.ds.restaurants_ref.observe(FIRDataEventType.value, with: { (snapshot) in
+            if let restaurantResults = snapshot.value as? [String: AnyObject] {
+                for restaurantResult in restaurantResults {
+                    print(restaurantResult)
+                    if let restaurantDict = restaurantResult.value as? [String: AnyObject] {
+                        let id = restaurantResult.key
+                        let name = restaurantDict["name"] as! String
+                        let neighborhood = restaurantDict["neighborhood"] as! String
+                        let address1 = restaurantDict["address1"] as! String
+                        let restaurant = Restaurant(id: id, name: name, neighborhood: neighborhood, address1: address1)
+                        self.restaurants.append(restaurant)
+                    }
+                }
+                print("restaurants: \(self.restaurants.count)")
+            }
+        })
+    
         DataService.ds.specials_ref.observe(FIRDataEventType.value, with: { (snapshot) in
             if let specialResults = snapshot.value as? [String: AnyObject] {
                 for specialResult in specialResults {
@@ -32,7 +50,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         let special = Special(restaurantId: restaurantId, description: description, days: days)
                         self.specials.append(special)
                     }
-                    
                 }
                 
             print("specials: \(self.specials.count)")
