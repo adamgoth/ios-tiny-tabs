@@ -28,12 +28,12 @@ class SpecialCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(special: Special) {
+    func configureCell(special: Special, restaurant: Restaurant) {
         print("Configuring cell...")
         self.special = special
-        self.restaurantLbl.text = "need to fetch"
-        self.neighborhoodLbl.text = "need to fetch"
-        self.addressLbl.text = "need to fetch"
+        self.restaurantLbl.text = restaurant.name
+        self.neighborhoodLbl.text = restaurant.neighborhood
+        self.addressLbl.text = restaurant.address1
         self.descriptionLbl.text = special.description
     }
 

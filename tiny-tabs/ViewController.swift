@@ -26,17 +26,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let restaurantResults = snapshot.value as? [String: AnyObject] {
                 for restaurantResult in restaurantResults {
                     print(restaurantResult)
-                    if let restaurantDict = restaurantResult.value as? [String: AnyObject] {
-                        let id = restaurantResult.key
-                        let name = restaurantDict["name"] as! String
-                        let neighborhood = restaurantDict["neighborhood"] as! String
-                        let address1 = restaurantDict["address1"] as! String
-                        let restaurant = Restaurant(id: id, name: name, neighborhood: neighborhood, address1: address1)
-                        self.restaurants.append(restaurant)
-                    }
+                    let id = restaurantResult.key
+                    let dict = restaurantResult.value
+                    let restaurant = Restaurant(id: id, dict: dict as! [String : String])
+                    self.restaurants.append(restaurant)
                 }
-                print("restaurants: \(self.restaurants.count)")
             }
+            
+            print(self.restaurants)
         })
     
         DataService.ds.specials_ref.observe(FIRDataEventType.value, with: { (snapshot) in
@@ -76,9 +73,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let special = specials[indexPath.row]
+        let filterRestaurant = restaurants.filter { $0.id == special.restaurantId }
+        let restaurant = filterRestaurant[0]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SpecialCell") as? SpecialCell {
-            cell.configureCell(special: special)
+            cell.configureCell(special: special, restaurant: restaurant)
             return cell
         } else {
             return SpecialCell()

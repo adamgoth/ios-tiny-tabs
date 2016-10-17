@@ -36,4 +36,11 @@ class Restaurant {
         self._neighborhood = neighborhood
         self._address1 = address1
     }
+    
+    init(id: String, dict: [String: String]) {
+        self._id = id
+        self._name = dict["name"]!
+        self._neighborhood = dict["neighborhood"]!
+        self._address1 = dict["address1"]!
+    }
 }
