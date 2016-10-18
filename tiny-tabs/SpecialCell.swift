@@ -28,10 +28,10 @@ class SpecialCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(special: Special, restaurant: Restaurant) {
+    func configureCell(special: Special, restaurant: Restaurant, neighborhood: Neighborhood) {
         self.special = special
         self.restaurantLbl.text = restaurant.name
-        self.neighborhoodLbl.text = restaurant.neighborhood
+        self.neighborhoodLbl.text = neighborhood.name
         self.addressLbl.text = restaurant.address1
         self.descriptionLbl.text = special.description
     }

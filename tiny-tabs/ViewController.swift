@@ -16,8 +16,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var neighborhoodButton: UIButton!
     
     var specials = [Special]()
+    var filteredSpecials = [Special]()
     var restaurants = [Restaurant]()
+    var filteredRestaurants = [String]()
     var neighborhoods = [Neighborhood]()
+    
+    var day = "All"
+    var hood: Neighborhood? = nil
+    
+    var filteredResults: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,33 +82,78 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return specials.count
+        if filteredResults == true {
+            return filteredSpecials.count
+        } else {
+            return specials.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let special = specials[indexPath.row]
-        let filterRestaurant = restaurants.filter { $0.id == special.restaurantId }
-        let restaurant = filterRestaurant[0]
+        var special: Special!
+        
+        if filteredResults == true {
+            special = filteredSpecials[indexPath.row]
+        } else {
+            special = specials[indexPath.row]
+        }
+        
+        let filterRestaurant = restaurants.filter { $0.id == special.restaurantId }.first!
+        let filterNeighborhood = neighborhoods.filter { $0.id == filterRestaurant.neighborhood }.first!
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SpecialCell") as? SpecialCell {
-            cell.configureCell(special: special, restaurant: restaurant)
+            cell.configureCell(special: special, restaurant: filterRestaurant, neighborhood: filterNeighborhood)
             return cell
         } else {
             return SpecialCell()
         }
     }
     
-    func setDay(action: UIAlertAction!) {
+    func filterResults(day: String, neighborhood: Neighborhood?) {
+        filteredResults = true
+        filteredSpecials = specials
         
+        if neighborhood != nil {
+            filteredRestaurants.removeAll()
+            for restaurant in restaurants {
+                if restaurant.neighborhood == neighborhood!.id {
+                    filteredRestaurants.append(restaurant.id)
+                }
+            }
+            filteredSpecials = specials.filter { filteredRestaurants.contains($0.restaurantId) }
+        }
+        
+        if day != "All" {
+            filteredSpecials = filteredSpecials.filter { $0.days["\(day)"] == true }
+        }
+        
+        tableView.reloadData()
     }
     
-    func setNeighborhood(action: UIAlertAction!) {
-        
+    func setDay(action: UIAlertAction!) {
+        dayButton.setTitle(action.title!, for: .normal)
+        if action.title! != "All" {
+            day = action.title!
+        } else {
+            day = "All"
+        }
+        filterResults(day: day, neighborhood: hood)
+    }
+    
+    func setNeighborhood(action: UIAlertAction!, neighborhood: Neighborhood?) {
+        neighborhoodButton.setTitle(action.title, for: .normal)
+        if neighborhood != nil {
+            hood = neighborhood
+        } else {
+            hood = nil
+        }
+        filterResults(day: day, neighborhood: hood)
     }
     
     @IBAction func dayTapped(_ sender: AnyObject) {
         let ac = UIAlertController(title: "Select Day", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "All", style: .default, handler: setDay))
         ac.addAction(UIAlertAction(title: "Monday", style: .default, handler: setDay))
         ac.addAction(UIAlertAction(title: "Tuesday", style: .default, handler: setDay))
         ac.addAction(UIAlertAction(title: "Wednesday", style: .default, handler: setDay))
@@ -115,8 +167,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBAction func neighborhoodTapped(_ sender: AnyObject) {
         let ac = UIAlertController(title: "Select Neighborhood", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "All", style: .default, handler: { (action: UIAlertAction!) in self.setNeighborhood(action: action, neighborhood: nil) }))
         for neighborhood in neighborhoods {
-            ac.addAction(UIAlertAction(title: "\(neighborhood.name)", style: .default, handler: setNeighborhood))
+            ac.addAction(UIAlertAction(title: "\(neighborhood.name)", style: .default, handler: { (action: UIAlertAction!) in self.setNeighborhood(action: action, neighborhood: neighborhood) }))
         }
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
