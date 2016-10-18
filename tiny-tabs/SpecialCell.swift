@@ -29,7 +29,6 @@ class SpecialCell: UITableViewCell {
     }
     
     func configureCell(special: Special, restaurant: Restaurant) {
-        print("Configuring cell...")
         self.special = special
         self.restaurantLbl.text = restaurant.name
         self.neighborhoodLbl.text = restaurant.neighborhood

@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var specials = [Special]()
     var restaurants = [Restaurant]()
+    var neighborhoods = [Neighborhood]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +27,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DataService.ds.restaurants_ref.observe(FIRDataEventType.value, with: { (snapshot) in
             if let restaurantResults = snapshot.value as? [String: AnyObject] {
                 for restaurantResult in restaurantResults {
-                    print(restaurantResult)
                     let id = restaurantResult.key
                     let dict = restaurantResult.value
                     let restaurant = Restaurant(id: id, dict: dict as! [String : String])
                     self.restaurants.append(restaurant)
                 }
             }
-            
-            print(self.restaurants)
+        })
+        
+        DataService.ds.neighborhoods_ref.observe(FIRDataEventType.value, with: { (snapshot) in
+            if let neighborhoodResults = snapshot.value as? [String: AnyObject] {
+                for neighborhoodResult in neighborhoodResults {
+                    let id = neighborhoodResult.key
+                    let name = neighborhoodResult.value["name"] as! String
+                    let neighborhood = Neighborhood(id: id, name: name)
+                    self.neighborhoods.append(neighborhood)
+                }
+            }
         })
     
         DataService.ds.specials_ref.observe(FIRDataEventType.value, with: { (snapshot) in
             if let specialResults = snapshot.value as? [String: AnyObject] {
                 for specialResult in specialResults {
-                    print(specialResult)
                     if let specialDict = specialResult.value as? [String: AnyObject] {
                         let restaurantId = specialDict["restaurantId"] as! String
                         let description = specialDict["description"] as! String
@@ -50,9 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
                 
-            print("specials: \(self.specials.count)")
             self.tableView.reloadData()
-            
             }
         })
         

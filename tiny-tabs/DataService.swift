@@ -16,6 +16,7 @@ class DataService {
     fileprivate var _ref = FIRDatabase.database().reference()
     fileprivate var _specials_ref = FIRDatabase.database().reference(fromURL: "https://ios-tiny-tabs.firebaseio.com/specials")
     fileprivate var _restaurants_ref = FIRDatabase.database().reference(fromURL: "https://ios-tiny-tabs.firebaseio.com/restaurants")
+    fileprivate var _neighborhoods_ref = FIRDatabase.database().reference(fromURL: "https://ios-tiny-tabs.firebaseio.com/neighborhoods")
     
     var ref: FIRDatabaseReference {
         return _ref
@@ -27,5 +28,9 @@ class DataService {
     
     var restaurants_ref: FIRDatabaseReference {
         return _restaurants_ref
+    }
+    
+    var neighborhoods_ref: FIRDatabaseReference {
+        return _neighborhoods_ref
     }
 }
