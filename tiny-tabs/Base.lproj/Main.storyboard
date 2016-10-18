@@ -54,6 +54,9 @@
                                                             <constraint firstAttribute="height" constant="30" id="F75-e8-b8K"/>
                                                         </constraints>
                                                         <state key="normal" title="All"/>
+                                                        <connections>
+                                                            <action selector="neighborhoodTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTA-7u-wPd"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -143,6 +146,7 @@
                     <navigationItem key="navigationItem" title="Tiny Tabs" id="Abk-9Q-aDC"/>
                     <connections>
                         <outlet property="dayButton" destination="AbF-If-iPS" id="dgy-uk-bBV"/>
+                        <outlet property="neighborhoodButton" destination="fD3-LO-wsY" id="Fwd-tt-MZV"/>
                         <outlet property="tableView" destination="2SN-iX-31Q" id="XyQ-Eq-gPT"/>
                     </connections>
                 </viewController>

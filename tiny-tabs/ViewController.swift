@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dayButton: UIButton!
+    @IBOutlet weak var neighborhoodButton: UIButton!
     
     var specials = [Special]()
     var restaurants = [Restaurant]()
@@ -95,6 +96,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func setNeighborhood(action: UIAlertAction!) {
+        
+    }
+    
     @IBAction func dayTapped(_ sender: AnyObject) {
         let ac = UIAlertController(title: "Select Day", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Monday", style: .default, handler: setDay))
@@ -108,6 +113,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(ac, animated: true)
     }
 
+    @IBAction func neighborhoodTapped(_ sender: AnyObject) {
+        let ac = UIAlertController(title: "Select Neighborhood", message: nil, preferredStyle: .actionSheet)
+        for neighborhood in neighborhoods {
+            ac.addAction(UIAlertAction(title: "\(neighborhood.name)", style: .default, handler: setNeighborhood))
+        }
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
 
 }
 
