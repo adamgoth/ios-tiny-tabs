@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,11 +18,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXS-4u-Tvc">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUn-Xl-1yh">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YRd-d4-0z1">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhP-E3-Ddj">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-If-iPS">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="7ph-fX-AuZ"/>
+                                                            <constraint firstAttribute="width" constant="150" id="SVi-FZ-Udu"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Wednesday"/>
+                                                        <connections>
+                                                            <action selector="dayTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRI-WB-h0N"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IXF-21-6TM">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neighborhood:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrp-dl-Uv4">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-LO-wsY">
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="9ov-f6-FGr"/>
+                                                            <constraint firstAttribute="height" constant="30" id="F75-e8-b8K"/>
+                                                        </constraints>
+                                                        <state key="normal" title="All"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fUn-Xl-1yh" firstAttribute="centerX" secondItem="IXS-4u-Tvc" secondAttribute="centerX" id="CXW-Ol-1Z4"/>
+                                    <constraint firstAttribute="height" constant="80" id="cev-un-X7W"/>
+                                    <constraint firstItem="fUn-Xl-1yh" firstAttribute="centerY" secondItem="IXS-4u-Tvc" secondAttribute="centerY" id="kaV-55-Uhh"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2SN-iX-31Q">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpecialCell" rowHeight="150" id="jEf-aF-xL4" customClass="SpecialCell" customModule="tiny_tabs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jEf-aF-xL4" id="zYp-Fc-Bjh">
                                             <frame key="frameInset" width="375" height="149.5"/>
@@ -80,35 +128,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-If-iPS">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Anq-S9-kne"/>
-                                    <constraint firstAttribute="width" constant="160" id="cpM-LW-pog"/>
-                                </constraints>
-                                <state key="normal" title="Wednesday"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-LO-wsY">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="5yc-e4-dKf"/>
-                                    <constraint firstAttribute="height" constant="30" id="hEQ-nd-VFg"/>
-                                </constraints>
-                                <state key="normal" title="All neighboorhoods"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AbF-If-iPS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="2RY-N3-fs3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2SN-iX-31Q" secondAttribute="bottom" id="7C7-G3-F0J"/>
-                            <constraint firstItem="fD3-LO-wsY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8cW-Do-rhy"/>
-                            <constraint firstItem="AbF-If-iPS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8gb-tY-1kA"/>
                             <constraint firstAttribute="trailing" secondItem="2SN-iX-31Q" secondAttribute="trailing" id="NTE-wE-ISt"/>
+                            <constraint firstItem="IXS-4u-Tvc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YPn-xq-dqU"/>
                             <constraint firstItem="2SN-iX-31Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z7i-xX-0HY"/>
-                            <constraint firstItem="2SN-iX-31Q" firstAttribute="top" secondItem="fD3-LO-wsY" secondAttribute="bottom" constant="8" id="e2P-QE-TKp"/>
-                            <constraint firstAttribute="trailing" secondItem="fD3-LO-wsY" secondAttribute="trailing" constant="10" id="gcV-cf-jaf"/>
+                            <constraint firstAttribute="trailing" secondItem="IXS-4u-Tvc" secondAttribute="trailing" id="bP5-SI-Nwn"/>
+                            <constraint firstItem="IXS-4u-Tvc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tNx-jh-rqx"/>
+                            <constraint firstItem="2SN-iX-31Q" firstAttribute="top" secondItem="IXS-4u-Tvc" secondAttribute="bottom" id="ywW-Ye-FbO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tiny Tabs" id="Abk-9Q-aDC"/>
                     <connections>
+                        <outlet property="dayButton" destination="AbF-If-iPS" id="dgy-uk-bBV"/>
                         <outlet property="tableView" destination="2SN-iX-31Q" id="XyQ-Eq-gPT"/>
                     </connections>
                 </viewController>

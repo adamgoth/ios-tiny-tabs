@@ -12,6 +12,7 @@ import Firebase
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dayButton: UIButton!
     
     var specials = [Special]()
     var restaurants = [Restaurant]()
@@ -82,6 +83,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return SpecialCell()
         }
+    }
+    
+    func setDay(action: UIAlertAction!) {
+        
+    }
+    
+    @IBAction func dayTapped(_ sender: AnyObject) {
+        let ac = UIAlertController(title: "Select Day", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Monday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Tuesday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Wednesday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Thursday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Friday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Saturday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Sunday", style: .default, handler: setDay))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
 
 
