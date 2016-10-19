@@ -13,7 +13,9 @@ class SpecialCell: UITableViewCell {
     @IBOutlet weak var restaurantLbl: UILabel!
     @IBOutlet weak var neighborhoodLbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var drinkLbl: UILabel!
+    @IBOutlet weak var foodLbl: UILabel!
     
     var special: Special!
 
@@ -33,7 +35,9 @@ class SpecialCell: UITableViewCell {
         self.restaurantLbl.text = restaurant.name
         self.neighborhoodLbl.text = neighborhood.name
         self.addressLbl.text = restaurant.address1
-        self.descriptionLbl.text = special.description
+        self.timeLbl.text = special.time
+        self.drinkLbl.text = special.drink
+        self.foodLbl.text = special.food
     }
 
 }

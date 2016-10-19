@@ -59,9 +59,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for specialResult in specialResults {
                     if let specialDict = specialResult.value as? [String: AnyObject] {
                         let restaurantId = specialDict["restaurantId"] as! String
-                        let description = specialDict["description"] as! String
+                        let time = specialDict["description"]!["time"] as! String
+                        let drink = specialDict["description"]!["drink"] as! String
+                        let food = specialDict["description"]!["food"] as! String
                         let days = specialDict["days"] as! [String: Bool]
-                        let special = Special(restaurantId: restaurantId, description: description, days: days)
+                        let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days)
                         self.specials.append(special)
                     }
                 }

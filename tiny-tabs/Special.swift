@@ -10,25 +10,37 @@ import Foundation
 
 class Special {
     fileprivate var _restaurantId: String!
-    fileprivate var _description: String!
     fileprivate var _days: [String: Bool]!
+    fileprivate var _time: String!
+    fileprivate var _drink: String!
+    fileprivate var _food: String!
     
     var restaurantId: String {
         return _restaurantId
-    }
-    
-    var description: String {
-        return _description
     }
     
     var days: [String: Bool] {
         return _days
     }
     
-    init(restaurantId: String, description: String, days: [String: Bool]) {
+    var time: String {
+        return _time
+    }
+    
+    var drink: String {
+        return _drink
+    }
+    
+    var food: String {
+        return _food
+    }
+    
+    init(restaurantId: String, time: String, drink: String, food: String, days: [String: Bool]) {
         _restaurantId = restaurantId
-        _description = description
         _days = days
+        _time = time
+        _drink = drink
+        _food = food
     }
     
     
