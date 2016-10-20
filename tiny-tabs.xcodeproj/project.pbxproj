@@ -19,6 +19,7 @@
 		F98DD8151DB6558700425AC1 /* Neighborhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DD8141DB6558700425AC1 /* Neighborhood.swift */; };
 		F9C2A38D1DB10F2E0046A9FE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2A38C1DB10F2E0046A9FE /* Restaurant.swift */; };
 		F9DB5A2D1DAF3AE600D3BF0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */; };
+		F9E124701DB93E1D0096949C /* SpecialContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E1246F1DB93E1D0096949C /* SpecialContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		F98DD8141DB6558700425AC1 /* Neighborhood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighborhood.swift; sourceTree = "<group>"; };
 		F9C2A38C1DB10F2E0046A9FE /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9E1246F1DB93E1D0096949C /* SpecialContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				F946A8BE1DAF057400519DF8 /* ViewController.swift */,
 				F946A8D51DAF26A800519DF8 /* SpecialCell.swift */,
+				F9E1246F1DB93E1D0096949C /* SpecialContainer.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				F9C2A38D1DB10F2E0046A9FE /* Restaurant.swift in Sources */,
 				F98DD8151DB6558700425AC1 /* Neighborhood.swift in Sources */,
 				F946A8D61DAF26A800519DF8 /* SpecialCell.swift in Sources */,
+				F9E124701DB93E1D0096949C /* SpecialContainer.swift in Sources */,
 				F946A8BD1DAF057400519DF8 /* AppDelegate.swift in Sources */,
 				F946A8DB1DAF29F100519DF8 /* DataService.swift in Sources */,
 			);
