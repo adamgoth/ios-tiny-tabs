@@ -29,11 +29,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-If-iPS">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbF-If-iPS" customClass="FilterButton" customModule="tiny_tabs" customModuleProvider="target">
                                                         <color key="backgroundColor" red="0.94901960780000005" green="0.41176470590000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="7ph-fX-AuZ"/>
-                                                            <constraint firstAttribute="width" constant="150" id="SVi-FZ-Udu"/>
+                                                            <constraint firstAttribute="width" constant="155" id="SVi-FZ-Udu"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                         <state key="normal" title="All">
@@ -52,10 +52,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-LO-wsY">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-LO-wsY" customClass="FilterButton" customModule="tiny_tabs" customModuleProvider="target">
                                                         <color key="backgroundColor" red="0.94901960780000005" green="0.41176470590000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="150" id="9ov-f6-FGr"/>
+                                                            <constraint firstAttribute="width" constant="155" id="9ov-f6-FGr"/>
                                                             <constraint firstAttribute="height" constant="30" id="F75-e8-b8K"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -223,12 +223,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="51b-ow-tqN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="eUQ-Fz-njR">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eUQ-Fz-njR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94901960780000005" green="0.41176470590000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="19"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

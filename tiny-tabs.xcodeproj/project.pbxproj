@@ -16,6 +16,7 @@
 		F946A8D61DAF26A800519DF8 /* SpecialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8D51DAF26A800519DF8 /* SpecialCell.swift */; };
 		F946A8D81DAF284400519DF8 /* Special.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8D71DAF284400519DF8 /* Special.swift */; };
 		F946A8DB1DAF29F100519DF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946A8DA1DAF29F100519DF8 /* DataService.swift */; };
+		F955E7C71DB98681001ABA05 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955E7C61DB98681001ABA05 /* FilterButton.swift */; };
 		F98DD8151DB6558700425AC1 /* Neighborhood.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98DD8141DB6558700425AC1 /* Neighborhood.swift */; };
 		F9C2A38D1DB10F2E0046A9FE /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2A38C1DB10F2E0046A9FE /* Restaurant.swift */; };
 		F9DB5A2D1DAF3AE600D3BF0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9DB5A2C1DAF3AE600D3BF0C /* GoogleService-Info.plist */; };
@@ -36,6 +37,7 @@
 		F946A8D51DAF26A800519DF8 /* SpecialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialCell.swift; sourceTree = "<group>"; };
 		F946A8D71DAF284400519DF8 /* Special.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Special.swift; sourceTree = "<group>"; };
 		F946A8DA1DAF29F100519DF8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F955E7C61DB98681001ABA05 /* FilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		F978FB481DAF3CF700C468F1 /* tiny-tabs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "tiny-tabs.entitlements"; sourceTree = "<group>"; };
 		F98DD8141DB6558700425AC1 /* Neighborhood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighborhood.swift; sourceTree = "<group>"; };
 		F9C2A38C1DB10F2E0046A9FE /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F946A8BE1DAF057400519DF8 /* ViewController.swift */,
 				F946A8D51DAF26A800519DF8 /* SpecialCell.swift */,
 				F9E1246F1DB93E1D0096949C /* SpecialContainer.swift */,
+				F955E7C61DB98681001ABA05 /* FilterButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F946A8BF1DAF057400519DF8 /* ViewController.swift in Sources */,
+				F955E7C71DB98681001ABA05 /* FilterButton.swift in Sources */,
 				F946A8D81DAF284400519DF8 /* Special.swift in Sources */,
 				F9C2A38D1DB10F2E0046A9FE /* Restaurant.swift in Sources */,
 				F98DD8151DB6558700425AC1 /* Neighborhood.swift in Sources */,
