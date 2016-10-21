@@ -32,46 +32,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        DataService.ds.restaurants_ref.observe(FIRDataEventType.value, with: { (snapshot) in
-            if let restaurantResults = snapshot.value as? [String: AnyObject] {
-                for restaurantResult in restaurantResults {
-                    let id = restaurantResult.key
-                    let dict = restaurantResult.value
-                    let restaurant = Restaurant(id: id, dict: dict as! [String : String])
-                    self.restaurants.append(restaurant)
-                }
-            }
-        })
-        
-        DataService.ds.neighborhoods_ref.observe(FIRDataEventType.value, with: { (snapshot) in
-            if let neighborhoodResults = snapshot.value as? [String: AnyObject] {
-                for neighborhoodResult in neighborhoodResults {
-                    let id = neighborhoodResult.key
-                    let name = neighborhoodResult.value["name"] as! String
-                    let neighborhood = Neighborhood(id: id, name: name)
-                    self.neighborhoods.append(neighborhood)
-                }
-            }
-        })
-    
-        DataService.ds.specials_ref.observe(FIRDataEventType.value, with: { (snapshot) in
-            if let specialResults = snapshot.value as? [String: AnyObject] {
-                for specialResult in specialResults {
-                    if let specialDict = specialResult.value as? [String: AnyObject] {
-                        let restaurantId = specialDict["restaurantId"] as! String
-                        let time = specialDict["description"]!["time"] as! String
-                        let drink = specialDict["description"]!["drink"] as! String
-                        let food = specialDict["description"]!["food"] as! String
-                        let days = specialDict["days"] as! [String: Bool]
-                        let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days)
-                        self.specials.append(special)
+        DataService.ds.ref.observe(FIRDataEventType.value, with: { (snapshot) in
+            if let data = snapshot.value as? [String: AnyObject] {
+                
+                if let neighborhoodResults = data["neighborhoods"] as? [String: AnyObject] {
+                    for neighborhoodResult in neighborhoodResults {
+                        let id = neighborhoodResult.key
+                        let name = neighborhoodResult.value["name"] as! String
+                        let neighborhood = Neighborhood(id: id, name: name)
+                        self.neighborhoods.append(neighborhood)
                     }
                 }
                 
-            self.tableView.reloadData()
+                if let restaurantResults = data["restaurants"] as? [String: AnyObject] {
+                    for restaurantResult in restaurantResults {
+                        let id = restaurantResult.key
+                        let dict = restaurantResult.value
+                        let restaurant = Restaurant(id: id, dict: dict as! [String : String])
+                        self.restaurants.append(restaurant)
+                    }
+                }
+                
+                if let specialResults = data["specials"] as? [String: AnyObject] {
+                    for specialResult in specialResults {
+                        if let specialDict = specialResult.value as? [String: AnyObject] {
+                            let restaurantId = specialDict["restaurantId"] as! String
+                            let time = specialDict["description"]!["time"] as! String
+                            let drink = specialDict["description"]!["drink"] as! String
+                            let food = specialDict["description"]!["food"] as! String
+                            let days = specialDict["days"] as! [String: Bool]
+                            let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days)
+                            self.specials.append(special)
+                        }
+                    }
+                }
             }
+            
+            self.tableView.reloadData()
         })
-        
+
     }
 
     override func didReceiveMemoryWarning() {
