@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func neighborhoodTapped(_ sender: AnyObject) {
         let ac = UIAlertController(title: "Select Neighborhood", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "All", style: .default, handler: { (action: UIAlertAction!) in self.setNeighborhood(action: action, neighborhood: nil) }))
-        for neighborhood in neighborhoods {
+        for neighborhood in neighborhoods.sorted(by: { $0.name < $1.name } ) {
             ac.addAction(UIAlertAction(title: "\(neighborhood.name)", style: .default, handler: { (action: UIAlertAction!) in self.setNeighborhood(action: action, neighborhood: neighborhood) }))
         }
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
