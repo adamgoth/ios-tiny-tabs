@@ -43,18 +43,24 @@ class SpecialCell: UITableViewCell {
             timeImg.isHidden = true
             timeLbl.isHidden = true
         } else {
+            timeImg.isHidden = false
+            timeLbl.isHidden = false
             timeLbl.text = special.time
         }
         if special.drink == "" {
             drinkImg.isHidden = true
             drinkLbl.isHidden = true
         } else {
+            drinkImg.isHidden = false
+            drinkLbl.isHidden = false
             drinkLbl.text = special.drink
         }
         if special.food == "" {
             foodImg.isHidden = true
             foodLbl.isHidden = true
         } else {
+            foodImg.isHidden = false
+            foodLbl.isHidden = false
             foodLbl.text = special.food
         }
     }
