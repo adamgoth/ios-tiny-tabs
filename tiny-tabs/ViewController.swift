@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 168
         
         DataService.ds.ref.observe(FIRDataEventType.value, with: { (snapshot) in
             if let data = snapshot.value as? [String: AnyObject] {
@@ -57,9 +58,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     for specialResult in specialResults {
                         if let specialDict = specialResult.value as? [String: AnyObject] {
                             let restaurantId = specialDict["restaurantId"] as! String
-                            let time = specialDict["description"]!["time"] as! String
-                            let drink = specialDict["description"]!["drink"] as! String
-                            let food = specialDict["description"]!["food"] as! String
+                            let time = specialDict["description"]!["time"] as? String ?? ""
+                            let drink = specialDict["description"]!["drink"] as? String ?? ""
+                            let food = specialDict["description"]!["food"] as? String ?? ""
                             let days = specialDict["days"] as! [String: Bool]
                             let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days)
                             self.specials.append(special)
@@ -108,6 +109,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             return cell
         } else {
             return SpecialCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var special: Special!
+        
+        if filteredResults == true {
+            special = filteredSpecials[indexPath.row]
+        } else {
+            special = specials[indexPath.row]
+        }
+        
+        if special.food == "" || special.drink == "" || special.time == "" {
+            return 135
+        } else {
+            return tableView.estimatedRowHeight
         }
     }
     

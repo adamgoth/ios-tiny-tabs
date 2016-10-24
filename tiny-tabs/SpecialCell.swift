@@ -10,6 +10,10 @@ import UIKit
 
 class SpecialCell: UITableViewCell {
     
+    @IBOutlet weak var timeImg: UIImageView!
+    @IBOutlet weak var drinkImg: UIImageView!
+    @IBOutlet weak var foodImg: UIImageView!
+    
     @IBOutlet weak var restaurantLbl: UILabel!
     @IBOutlet weak var neighborhoodLbl: UILabel!
     @IBOutlet weak var addressLbl: UILabel!
@@ -32,12 +36,27 @@ class SpecialCell: UITableViewCell {
     
     func configureCell(special: Special, restaurant: Restaurant, neighborhood: Neighborhood) {
         self.special = special
-        self.restaurantLbl.text = restaurant.name
-        self.neighborhoodLbl.text = neighborhood.name
-        self.addressLbl.text = restaurant.address1
-        self.timeLbl.text = special.time
-        self.drinkLbl.text = special.drink
-        self.foodLbl.text = special.food
+        restaurantLbl.text = restaurant.name
+        neighborhoodLbl.text = neighborhood.name
+        addressLbl.text = restaurant.address1
+        if special.time == "" {
+            timeImg.isHidden = true
+            timeLbl.isHidden = true
+        } else {
+            timeLbl.text = special.time
+        }
+        if special.drink == "" {
+            drinkImg.isHidden = true
+            drinkLbl.isHidden = true
+        } else {
+            drinkLbl.text = special.drink
+        }
+        if special.food == "" {
+            foodImg.isHidden = true
+            foodLbl.isHidden = true
+        } else {
+            foodLbl.text = special.food
+        }
     }
 
 }
