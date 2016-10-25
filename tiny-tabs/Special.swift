@@ -14,6 +14,7 @@ class Special {
     fileprivate var _time: String!
     fileprivate var _drink: String!
     fileprivate var _food: String!
+    fileprivate var _website: String!
     
     var restaurantId: String {
         return _restaurantId
@@ -35,12 +36,17 @@ class Special {
         return _food
     }
     
-    init(restaurantId: String, time: String, drink: String, food: String, days: [String: Bool]) {
+    var website: String {
+        return _website
+    }
+    
+    init(restaurantId: String, time: String, drink: String, food: String, days: [String: Bool], website: String) {
         _restaurantId = restaurantId
         _days = days
         _time = time
         _drink = drink
         _food = food
+        _website = website
     }
     
     

@@ -62,7 +62,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             let drink = specialDict["description"]!["drink"] as? String ?? ""
                             let food = specialDict["description"]!["food"] as? String ?? ""
                             let days = specialDict["days"] as! [String: Bool]
-                            let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days)
+                            let website = specialDict["website"] as? String ?? ""
+                            let special = Special(restaurantId: restaurantId, time: time, drink: drink, food: food, days: days, website: website)
                             self.specials.append(special)
                         }
                     }

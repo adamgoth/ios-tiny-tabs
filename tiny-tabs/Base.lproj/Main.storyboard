@@ -151,6 +151,16 @@
                                                                 <constraint firstAttribute="height" constant="25" id="Zd2-R1-zTb"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYZ-q0-nBC">
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="Utk-jm-tos"/>
+                                                                <constraint firstAttribute="width" constant="25" id="hJW-sX-9qp"/>
+                                                            </constraints>
+                                                            <state key="normal" image="website"/>
+                                                            <connections>
+                                                                <action selector="websiteTapped:" destination="jEf-aF-xL4" eventType="touchUpInside" id="yOu-H3-aWn"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -159,6 +169,8 @@
                                                         <constraint firstItem="vV8-WA-tCi" firstAttribute="leading" secondItem="rkx-EY-yHD" secondAttribute="trailing" constant="8" id="A6r-13-iOE"/>
                                                         <constraint firstItem="rkx-EY-yHD" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="Fzb-PW-r6F"/>
                                                         <constraint firstItem="C1h-IN-ELu" firstAttribute="top" secondItem="sWM-34-jg1" secondAttribute="top" constant="8" id="J2H-8x-IVh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VYZ-q0-nBC" secondAttribute="trailing" constant="8" id="L7U-Jk-bm9"/>
+                                                        <constraint firstItem="VYZ-q0-nBC" firstAttribute="top" secondItem="sWM-34-jg1" secondAttribute="top" constant="8" id="Pt8-RD-OEf"/>
                                                         <constraint firstItem="hXk-WH-SUb" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="X5g-ld-OW1"/>
                                                         <constraint firstItem="2RF-7D-lHw" firstAttribute="leading" secondItem="sWM-34-jg1" secondAttribute="leading" constant="8" id="XZG-MF-Cfu"/>
                                                         <constraint firstItem="hXk-WH-SUb" firstAttribute="top" secondItem="tig-b6-SLc" secondAttribute="bottom" constant="8" id="YMo-9c-KgZ"/>
@@ -195,6 +207,7 @@
                                             <outlet property="restaurantLbl" destination="C1h-IN-ELu" id="OgU-Dv-R7r"/>
                                             <outlet property="timeImg" destination="tig-b6-SLc" id="mpu-S3-cDb"/>
                                             <outlet property="timeLbl" destination="xgK-h7-OJt" id="EkW-e1-lm6"/>
+                                            <outlet property="websiteBtn" destination="VYZ-q0-nBC" id="YeN-xL-mOl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -250,5 +263,6 @@
         <image name="clock" width="512" height="512"/>
         <image name="drink" width="512" height="512"/>
         <image name="food" width="512" height="512"/>
+        <image name="website" width="512" height="512"/>
     </resources>
 </document>

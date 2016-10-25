@@ -13,6 +13,7 @@ class SpecialCell: UITableViewCell {
     @IBOutlet weak var timeImg: UIImageView!
     @IBOutlet weak var drinkImg: UIImageView!
     @IBOutlet weak var foodImg: UIImageView!
+    @IBOutlet weak var websiteBtn: UIButton!
     
     @IBOutlet weak var restaurantLbl: UILabel!
     @IBOutlet weak var neighborhoodLbl: UILabel!
@@ -62,6 +63,20 @@ class SpecialCell: UITableViewCell {
             foodImg.isHidden = false
             foodLbl.isHidden = false
             foodLbl.text = special.food
+        }
+        if special.website == "" {
+            websiteBtn.isHidden = true
+        } else {
+            websiteBtn.isHidden = false
+        }
+    }
+    
+    @IBAction func websiteTapped(_ sender: AnyObject) {
+        let url = URL(string: "\(special.website)")!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
         }
     }
 
