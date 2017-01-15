@@ -68,11 +68,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         }
                     }
                 }
+                
+                self.sortSpecials()
             }
             
             self.tableView.reloadData()
         })
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -168,6 +170,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             hood = nil
         }
         filterResults(day: day, neighborhood: hood)
+    }
+    
+    func sortSpecials() {
+        filteredSpecials = filteredSpecials.sorted(by: {
+            findRestaurant(id: $0.restaurantId) < findRestaurant(id: $1.restaurantId)
+        })
+        specials = specials.sorted(by: {
+            findRestaurant(id: $0.restaurantId) < findRestaurant(id: $1.restaurantId)
+        })
+    }
+    
+    func findRestaurant(id: String) -> String {
+        return restaurants.filter({ $0.id == id }).first!.name
     }
     
     @IBAction func dayTapped(_ sender: AnyObject) {
