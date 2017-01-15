@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dayButton: UIButton!
@@ -80,55 +80,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filteredResults == true {
-            return filteredSpecials.count
-        } else {
-            return specials.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var special: Special!
-        
-        if filteredResults == true {
-            special = filteredSpecials[indexPath.row]
-        } else {
-            special = specials[indexPath.row]
-        }
-        
-        let filterRestaurant = restaurants.filter { $0.id == special.restaurantId }.first!
-        let filterNeighborhood = neighborhoods.filter { $0.id == filterRestaurant.neighborhood }.first!
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "SpecialCell") as? SpecialCell {
-            cell.configureCell(special: special, restaurant: filterRestaurant, neighborhood: filterNeighborhood)
-            return cell
-        } else {
-            return SpecialCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var special: Special!
-        
-        if filteredResults == true {
-            special = filteredSpecials[indexPath.row]
-        } else {
-            special = specials[indexPath.row]
-        }
-        
-        if special.food == "" || special.drink == "" || special.time == "" {
-            return 135
-        } else {
-            return tableView.estimatedRowHeight
-        }
     }
     
     func filterResults(day: String, neighborhood: Neighborhood?) {
@@ -211,3 +162,53 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filteredResults == true {
+            return filteredSpecials.count
+        } else {
+            return specials.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var special: Special!
+        
+        if filteredResults == true {
+            special = filteredSpecials[indexPath.row]
+        } else {
+            special = specials[indexPath.row]
+        }
+        
+        let filterRestaurant = restaurants.filter { $0.id == special.restaurantId }.first!
+        let filterNeighborhood = neighborhoods.filter { $0.id == filterRestaurant.neighborhood }.first!
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SpecialCell") as? SpecialCell {
+            cell.configureCell(special: special, restaurant: filterRestaurant, neighborhood: filterNeighborhood)
+            return cell
+        } else {
+            return SpecialCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var special: Special!
+        
+        if filteredResults == true {
+            special = filteredSpecials[indexPath.row]
+        } else {
+            special = specials[indexPath.row]
+        }
+        
+        if special.food == "" || special.drink == "" || special.time == "" {
+            return 135
+        } else {
+            return tableView.estimatedRowHeight
+        }
+    }
+}
